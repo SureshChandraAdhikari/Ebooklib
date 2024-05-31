@@ -1,4 +1,3 @@
-
 import mongoose, { Schema, Document } from 'mongoose';
 import UserModel from '../user/userModel';
 
@@ -17,7 +16,7 @@ const bookSchema = new Schema<Book>({
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: UserModel, // Reference the model name of the user model
+    ref: UserModel.modelName, // Correctly reference the user model name
     required: true,
   },
   coverImage: {
