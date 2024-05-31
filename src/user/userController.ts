@@ -69,7 +69,7 @@ const user = await UserModel.findOne({email})
     return next(createHttpError(404,"User not found"))
     }
 try {
-     const isMatch = await bcrypt.compare(password,user.password)
+    const isMatch = await bcrypt.compare(password,user.password)
 
     if(!isMatch) {
         return next(createHttpError(400,"Username or password is incorrect!"))
