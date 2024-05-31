@@ -8,6 +8,7 @@ const _config = {
     cloudinaryCloud:process.env.CLOUDINARY_CLOUD,
     cloudinaryCloudApikey:process.env.CLOUDINARY_API_KEY,
     cloudinaryCloudApisecret:process.env.CLOUDINARY_API_SECRET,
+    frontEndDomain:process.env.FRONT_END_DOMAIN ,
 }
 
 
