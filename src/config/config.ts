@@ -5,6 +5,9 @@ const _config = {
     databaseUrl: process.env.MONGODBURI,
     env:process.env.NODE_ENV ,
     jwtSecret: process.env.JWT_SECRET ,
+    cloudinaryCloud:process.env.CLOUDINARY_CLOUD,
+    cloudinaryCloudApikey:process.env.CLOUDINARY_API_KEY,
+    cloudinaryCloudApisecret:process.env.CLOUDINARY_API_SECRET,
 }
 
 
