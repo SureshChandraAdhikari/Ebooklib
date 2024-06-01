@@ -7,7 +7,7 @@ import fs from "node:fs";
 import { AuthRequest } from "../middlewares/authenticate";
 
 const createBook = async (req: Request, res: Response, next: NextFunction) => {
-  const { title, genre } = req.body;
+  const { title, genre , description} = req.body;
   console.log("files", req.files);
 
   try {
@@ -43,6 +43,7 @@ const createBook = async (req: Request, res: Response, next: NextFunction) => {
 
     const newBook = await BookModel.create({
       title,
+      description,
       genre,
       author: _req.userId,
       coverImage: uploadResult.secure_url,
@@ -72,7 +73,7 @@ const createBook = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const updateBook = async (req: Request, res: Response, next: NextFunction) => {
-  const { title, genre } = req.body;
+  const { title, genre,description } = req.body;
   const bookId = req.params.bookId;
 
   const book = await BookModel.findOne({ _id: bookId });
@@ -135,6 +136,7 @@ const updateBook = async (req: Request, res: Response, next: NextFunction) => {
     {
       title,
       genre,
+      description,
       coverImage: completeCoverImage || book.coverImage,
       file: completeFileName || book.file,
     },
@@ -215,7 +217,7 @@ const deleteBook = async (req: Request, res: Response, next: NextFunction) => {
 
     return res.sendStatus(204);
     } catch (error) {
-        return next(createHttpError(500, "File Deletion Unsuccessfull "));
+        return next(createHttpError(500, "File Deletion Unsuccessful "));
     }
     
 };

@@ -7,6 +7,7 @@ interface Book extends Document {
   coverImage: string;
   file: string;
   genre: string;
+  description: string;
 }
 
 const bookSchema = new Schema<Book>({
@@ -16,9 +17,13 @@ const bookSchema = new Schema<Book>({
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: UserModel.modelName, // Correctly reference the user model name
+    ref: "User", // Correctly reference the user model name
     required: true,
   },
+  description: {
+            type: String,
+            require: true,
+        },
   coverImage: {
     type: String,
     required: true,
